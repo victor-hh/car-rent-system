@@ -1,2 +1,2 @@
 # car-rent-system
-Projeto criado para a execução de projeto da disciplina de Sistemas de Gerência de Banco de Dados do curso de Ciência da Computação na Unisinos.
+Repositório criado para a execução de projeto da disciplina de Sistemas de Gerência de Banco de Dados do curso de Ciência da Computação na Unisinos.
