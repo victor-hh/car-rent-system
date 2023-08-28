@@ -1,5 +1,6 @@
 package com.unisinos.carrentsystem.service;
 
+import com.unisinos.carrentsystem.entity.Car;
 import com.unisinos.carrentsystem.entity.CarModel;
 import com.unisinos.carrentsystem.repository.CarModelRepository;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +21,14 @@ public class CarModelService {
 
     public CarModel findById(UUID id) {
         return repository.findById(id).orElse(null);
+    }
+
+    public void deleteById(UUID id) {
+        repository.deleteById(id);
+    }
+
+    public List<String> getByModel(UUID uuid) {
+        return repository.getByModel(uuid);
     }
 
     public List<CarModel> findAll() {
