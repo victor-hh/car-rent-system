@@ -27,8 +27,8 @@ public class CarModelService {
         repository.deleteById(id);
     }
 
-    public List<String> getByModel(UUID uuid) {
-        return repository.getByModel(uuid);
+    public List<String> getByModel(String model) {
+        return repository.getByModel(model);
     }
 
     public List<CarModel> findAll() {

@@ -13,7 +13,7 @@ public interface CarModelRepository extends JpaRepository<CarModel, UUID> {
 
     CarModel getCarModelById(UUID id);
 
-    @Query(value = "select id, plate, model, year from car where model = :uuid", nativeQuery = true)
-    List<String> getByModel(@Param("uuid")UUID uuid);
+    @Query(value = "select car.id, plate, car_model.name, year from (car join car_model on car.model = car_model.id) where car_model.name = :model", nativeQuery = true)
+    List<String> getByModel(@Param("model")String model);
 }
 // where car_model.name = :model

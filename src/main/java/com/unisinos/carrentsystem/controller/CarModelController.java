@@ -40,7 +40,7 @@ public class CarModelController {
     }
 
     @GetMapping("/get-cars/{model}")
-    private ResponseEntity<List<String>> getByModel(@PathVariable(value = "model") UUID uuid) {
-        return ResponseEntity.ofNullable(service.getByModel(uuid));
+    private ResponseEntity<List<String>> getByModel(@PathVariable(value = "model") String model) {
+        return ResponseEntity.ofNullable(service.getByModel(model));
     }
 }
