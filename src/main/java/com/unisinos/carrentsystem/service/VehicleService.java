@@ -1,12 +1,14 @@
 package com.unisinos.carrentsystem.service;
 
-import com.unisinos.carrentsystem.entity.Vehicle;
-import com.unisinos.carrentsystem.repository.VehicleRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.UUID;
+
+import org.springframework.stereotype.Service;
+
+import com.unisinos.carrentsystem.entity.Vehicle;
+import com.unisinos.carrentsystem.repository.VehicleRepository;
+
+import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
@@ -18,6 +20,10 @@ public class VehicleService {
         return repository.save(carModel);
     }
 
+    public List<Vehicle> findAll() {
+        return repository.findAll();
+    }
+
     public Vehicle findById(UUID id) {
         return repository.findById(id).orElse(null);
     }
@@ -26,11 +32,4 @@ public class VehicleService {
         repository.deleteById(id);
     }
 
-//    public List<String> getByModel(String model) {
-//        return repository.getByModel(model);
-//    }
-
-    public List<Vehicle> findAll() {
-        return repository.findAll();
-    }
 }
