@@ -1,9 +1,6 @@
 package com.unisinos.carrentsystem.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -30,6 +27,9 @@ public class Person {
     LocalDate birthDate;
 
     String email;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    DriverLicense driverLicense;
 
 //    @OneToOne(fetch = FetchType.LAZY)
 ////    @MapsId

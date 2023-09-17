@@ -20,6 +20,8 @@ public class DriverLicense {
     @GeneratedValue(strategy = GenerationType.AUTO)
     UUID id;
 
+    String registry_number;
+
     LocalDate expiration;
 
 }

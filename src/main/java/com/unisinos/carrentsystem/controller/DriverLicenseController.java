@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/driver-license")
@@ -25,6 +26,11 @@ public class DriverLicenseController {
     public ResponseEntity<List<DriverLicense>> findAll() {
         List<DriverLicense> driverLicenses = service.findAll();
         return ResponseEntity.ok(driverLicenses);
+    }
+
+    @GetMapping("validate/{uuid}")
+    public boolean validate(@PathVariable(value = "uuid") UUID uuid) {
+        return service.validate(uuid);
     }
 
 
