@@ -1,13 +1,15 @@
 package com.unisinos.carrentsystem.entity;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.UUID;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -24,21 +26,24 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Person {
+public class Payment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     UUID id;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    DriverLicense driverLicense;
+    @OneToOne
+    @JoinColumn(name = "book_id", referencedColumnName = "id", nullable = false)
+    Book book;
 
-    String name;
+    @ManyToMany
+    @JoinColumn(name = "payment_method_id", referencedColumnName = "id", nullable = false)
+    PaymentMethod paymentMethod;
 
-    String cpf;
+    BigDecimal value;
 
-    LocalDate birthDate;
+    LocalDate dueDate;
 
-    String email;
+    Boolean paid;
 
 }
