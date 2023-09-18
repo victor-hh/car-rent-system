@@ -30,8 +30,8 @@ Para isto, execute o projeto através da interface de sua IDE de preferencia ou 
 
 ### Entidade Relacionamento
 
-![diagrama_er](./doc/digrama_er)
+![diagrama_er](./doc/DiagramaER.png)
 
 ### Classes
 
-![diagrama_classes](./doc/digrama_classes)
+![diagrama_classes](./doc/diagramaClasse.png)
