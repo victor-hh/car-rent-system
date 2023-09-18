@@ -37,7 +37,7 @@ public class BookController {
 
     @GetMapping("uuid")
     public ResponseEntity<Book> findById(UUID uuid) {
-        Book book = service.findById(uuid)
+        Book book = service.findById(uuid);
         return ResponseEntity.ok(book);
     }
 

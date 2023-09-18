@@ -9,7 +9,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -36,7 +35,7 @@ public class Payment {
     @JoinColumn(name = "book_id", referencedColumnName = "id", nullable = false)
     Book book;
 
-    @ManyToMany
+    @OneToOne
     @JoinColumn(name = "payment_method_id", referencedColumnName = "id", nullable = false)
     PaymentMethod paymentMethod;
 
