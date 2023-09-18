@@ -6,10 +6,7 @@ import java.util.UUID;
 import com.unisinos.carrentsystem.entity.enums.AgencySpot;
 import com.unisinos.carrentsystem.entity.enums.VehicleCategory;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

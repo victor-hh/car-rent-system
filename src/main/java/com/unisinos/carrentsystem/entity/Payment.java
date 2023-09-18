@@ -4,12 +4,8 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.UUID;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import com.unisinos.carrentsystem.entity.enums.PaymentMethod;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -31,12 +27,6 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.AUTO)
     UUID id;
 
-    @OneToOne
-    @JoinColumn(name = "book_id", referencedColumnName = "id", nullable = false)
-    Book book;
-
-    @OneToOne
-    @JoinColumn(name = "payment_method_id", referencedColumnName = "id", nullable = false)
     PaymentMethod paymentMethod;
 
     BigDecimal value;

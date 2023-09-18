@@ -1,15 +1,10 @@
 package com.unisinos.carrentsystem.entity;
 
 import java.time.LocalDate;
+import java.util.Set;
 import java.util.UUID;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -31,15 +26,19 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.AUTO)
     UUID id;
 
-    @ManyToOne
-    @JoinColumn(name = "vehicle_id", referencedColumnName = "id", nullable = false)
-    Vehicle vehicle;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "book_vehicle_relationship",
+            joinColumns = @JoinColumn(name = "book_id"),
+            inverseJoinColumns = @JoinColumn(name = "vehicle_id")
+    )
+    Set<Vehicle> vehicles;
 
     @ManyToOne
     @JoinColumn(name = "person_id", referencedColumnName = "id", nullable = false)
     Person person;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "payment_id", referencedColumnName = "id", nullable = false)
     Payment payment;
 
