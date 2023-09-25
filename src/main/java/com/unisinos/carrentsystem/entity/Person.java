@@ -3,12 +3,7 @@ package com.unisinos.carrentsystem.entity;
 import java.time.LocalDate;
 import java.util.UUID;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,8 +28,10 @@ public class Person {
     @OneToOne(cascade = CascadeType.ALL)
     DriverLicense driverLicense;
 
+    @Column(nullable = false)
     String name;
 
+    @Column(unique = true, length = 13, nullable = false)
     String cpf;
 
     LocalDate birthDate;
